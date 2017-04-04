@@ -208,10 +208,7 @@
     <Content Include="Views\Job\Applied.cshtml" />
     <None Include="Views\Job\Report.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Browsers\" />
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
