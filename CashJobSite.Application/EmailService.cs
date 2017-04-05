@@ -1,4 +1,3 @@
-using System;
 using CashJobSite.Application.Logging;
 
 namespace CashJobSite.Application
