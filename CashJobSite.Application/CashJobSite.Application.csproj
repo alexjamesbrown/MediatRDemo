@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmailService.cs" />
-    <Compile Include="IEmailService.cs" />
-    <Compile Include="IJobService.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\IEmailService.cs" />
+    <Compile Include="Services\IJobService.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="JobService.cs" />
+    <Compile Include="Services\JobService.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

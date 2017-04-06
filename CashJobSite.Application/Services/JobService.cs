@@ -5,7 +5,7 @@ using CashJobSite.Application.Logging;
 using CashJobSite.Data.Repositories;
 using CashJobSite.Models;
 
-namespace CashJobSite.Application
+namespace CashJobSite.Application.Services
 {
     public class JobService : IJobService
     {

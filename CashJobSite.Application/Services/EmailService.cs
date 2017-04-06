@@ -1,6 +1,6 @@
 using CashJobSite.Application.Logging;
 
-namespace CashJobSite.Application
+namespace CashJobSite.Application.Services
 {
     public class EmailService : IEmailService
     {

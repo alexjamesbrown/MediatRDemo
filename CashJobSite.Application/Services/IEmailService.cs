@@ -1,5 +1,5 @@
 ﻿
-namespace CashJobSite.Application
+namespace CashJobSite.Application.Services
 {
     public interface IEmailService
     {

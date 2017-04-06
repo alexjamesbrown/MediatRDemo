@@ -8,6 +8,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using CashJobSite.Application;
 using CashJobSite.Application.Logging;
+using CashJobSite.Application.Services;
 using CashJobSite.Data;
 using CashJobSite.Data.Repositories;
 using CashJobSite.Models;

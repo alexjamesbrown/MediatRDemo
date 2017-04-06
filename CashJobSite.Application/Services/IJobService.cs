@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CashJobSite.Models;
 
-namespace CashJobSite.Application
+namespace CashJobSite.Application.Services
 {
     public interface IJobService
     {
