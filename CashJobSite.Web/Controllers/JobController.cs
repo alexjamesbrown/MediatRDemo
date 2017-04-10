@@ -1,29 +1,33 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
 using CashJobSite.Application;
+using CashJobSite.Application.Commands;
+using CashJobSite.Application.Queries;
 using CashJobSite.Application.Services;
 using CashJobSite.Models;
 using CashJobSite.Web.Models;
+using MediatR;
 
 namespace CashJobSite.Web.Controllers
 {
     public class JobController : Controller
     {
-        private readonly IJobService _jobService;
+        private readonly IMediator _mediator;
 
-        public JobController(IJobService jobService)
+        public JobController(IMediator mediator)
         {
-            _jobService = jobService;
+            _mediator = mediator;
         }
 
-        public ActionResult Index(int id)
+        public async Task<ViewResult> Index(int id)
         {
-            var job = _jobService.GetJobById(id);
+            var job = await _mediator.Send(new GetJobByIdQuery(id));
             return View(job);
         }
 
-        public ActionResult Apply(int id)
+        public async Task<ViewResult> Apply(int id)
         {
-            var job = _jobService.GetJobById(id);
+            var job = await _mediator.Send(new GetJobByIdQuery(id));
 
             var viewModel = new ApplyForJobViewModel
             {
@@ -39,17 +43,19 @@ namespace CashJobSite.Web.Controllers
         [HttpPost]
         public ActionResult Apply(ApplyForJobViewModel model)
         {
-            _jobService.AddJobApplication(model.JobId, model.CandidateName, model.CandidateEmail, model.CandidateInfo);
+            _mediator.Send(new AddJobApplicationCommand(model.JobId, model.CandidateName, model.CandidateEmail, model.CandidateInfo));
 
             return RedirectToAction("Applied");
         }
 
-        public ActionResult Report(int id)
+        public async Task<ViewResult> Report(int id)
         {
             var ipAddress = Request.UserHostAddress;
-            _jobService.ReportJob(id, ipAddress);
 
-            var job = _jobService.GetJobById(id);
+            await _mediator.Send(new ReportJobCommand(id, ipAddress));
+
+            var job = await _mediator.Send(new GetJobByIdQuery(id));
+
             return View(job);
         }
 
@@ -61,7 +67,7 @@ namespace CashJobSite.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(PostJobViewModel model)
+        public async Task<RedirectToRouteResult> Post(PostJobViewModel model)
         {
             var job = new Job
             {
@@ -70,7 +76,7 @@ namespace CashJobSite.Web.Controllers
                 Cash = model.Cash
             };
 
-            var savedJob = _jobService.AddJob(job);
+            var savedJob = await _mediator.Send(new AddJobCommand(job));
 
             return RedirectToAction("Posted", new { id = savedJob.Id });
         }

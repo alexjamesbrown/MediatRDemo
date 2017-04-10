@@ -30,7 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,11 +53,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\AddJobApplicationCommandHandler.cs" />
+    <Compile Include="CommandHandlers\AddJobCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ReportJobCommandHandler.cs" />
+    <Compile Include="Commands\AddJobApplicationCommand.cs" />
+    <Compile Include="Commands\AddJobCommand.cs" />
+    <Compile Include="Commands\ReportJobCommand.cs" />
+    <Compile Include="Queries\FindAllJobsQuery.cs" />
+    <Compile Include="Queries\GetJobByIdQuery.cs" />
+    <Compile Include="Queries\SearchJobsQuery.cs" />
+    <Compile Include="QueryHandlers\FindAllJobsQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetJobByIdQueryHandler.cs" />
+    <Compile Include="QueryHandlers\SearchJobsQueryHandler.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\IEmailService.cs" />
-    <Compile Include="Services\IJobService.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Services\JobService.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +80,10 @@
       <Project>{58E61FBE-8FEB-4390-8267-46E79E01D436}</Project>
       <Name>CashJobSite.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

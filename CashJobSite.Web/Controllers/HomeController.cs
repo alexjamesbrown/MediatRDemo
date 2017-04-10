@@ -1,34 +1,33 @@
-﻿using System.Web.Mvc;
-using CashJobSite.Application;
-using CashJobSite.Application.Services;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using CashJobSite.Application.Queries;
 using CashJobSite.Web.Models;
+using MediatR;
 
 namespace CashJobSite.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IJobService _jobService;
+        private readonly IMediator _mediator;
 
-        public HomeController(IJobService jobService)
+        public HomeController(IMediator mediator)
         {
-            _jobService = jobService;
+            _mediator = mediator;
         }
 
-        public ActionResult Index()
+        public async Task<ViewResult> Index()
         {
-            var allJobs = _jobService.FindAllJobs();
+            var allJobs = await _mediator.Send(new FindAllJobsQuery());
 
             var viewModel = new HomePageViewModel { Jobs = allJobs, SearchForm = new SearchFormModel() };
 
             return View(viewModel);
         }
 
-
         [HttpPost]
-        public ActionResult Index([Bind(Prefix = "SearchForm")]SearchFormModel search)
+        public async Task<ViewResult> Index([Bind(Prefix = "SearchForm")]SearchFormModel search)
         {
-            var searchResults = _jobService
-                .SearchJobs(search.Title, search.Cash);
+            var searchResults = await _mediator.Send(new SearchJobsQuery(search.Title, search.Cash));
 
             var viewModel = new HomePageViewModel { Jobs = searchResults, SearchForm = search };
 
