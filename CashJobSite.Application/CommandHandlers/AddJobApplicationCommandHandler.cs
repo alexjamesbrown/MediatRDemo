@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CashJobSite.Application.Commands;
 using CashJobSite.Application.Logging;
+using CashJobSite.Application.Notifications;
 using CashJobSite.Application.Queries;
 using CashJobSite.Application.Services;
 using CashJobSite.Data;
@@ -43,15 +40,10 @@ namespace CashJobSite.Application.CommandHandlers
             _dbContext.JobApplications.Add(jobApplication);
             _dbContext.SaveChanges();
 
-            var emailSubject = "Job application received.";
-            var emailBody = "You have a new application for your job #" + job.Id + "\n" +
-                            "Name: " + message.CandidateName + "\n" +
-                            "Email: " + message.CandidateEmail + "\n" +
-                            "Info: " + message.CandidateInfo + "\n";
+            await _mediator
+                .Publish(new JobApplicationSentNotification(job, message.CandidateName, message.CandidateEmail, message.CandidateInfo));
 
-            _emailService.SendEmail(job.BossEmail, emailSubject, emailBody);
-
-            _logger.Debug("Email Sent");
+            _logger.Debug("Emails Sent");
 
             return Unit.Value;
         }
