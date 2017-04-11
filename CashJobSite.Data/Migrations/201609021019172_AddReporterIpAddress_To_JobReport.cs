@@ -1,6 +1,5 @@
 namespace CashJobSite.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class AddReporterIpAddress_To_JobReport : DbMigration
