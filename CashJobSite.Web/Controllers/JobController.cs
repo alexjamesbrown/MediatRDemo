@@ -1,9 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using CashJobSite.Application;
 using CashJobSite.Application.Commands;
 using CashJobSite.Application.Queries;
-using CashJobSite.Application.Services;
 using CashJobSite.Models;
 using CashJobSite.Web.Models;
 using MediatR;

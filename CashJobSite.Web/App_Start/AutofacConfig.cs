@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
@@ -9,8 +7,6 @@ using CashJobSite.Application.Commands;
 using CashJobSite.Application.Logging;
 using CashJobSite.Application.Services;
 using CashJobSite.Data;
-using CashJobSite.Data.Repositories;
-using CashJobSite.Models;
 using MediatR;
 
 namespace CashJobSite.Web
@@ -25,17 +21,13 @@ namespace CashJobSite.Web
 
             builder.RegisterType<CashJobSiteDbContext>().As<ICashJobSiteDbContext>().InstancePerRequest();
 
-            builder.RegisterType<JobRepository>().As<IRepository<Job>>();
-            builder.RegisterType<JobReportRepository>().As<IRepository<JobReport>>();
-            builder.RegisterType<JobApplicationRepository>().As<IRepository<JobApplication>>();
-
             builder.RegisterType<EmailService>().As<IEmailService>();
             builder.RegisterType<Logger>().As<ILogger>();
 
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
 
-            builder.RegisterAssemblyTypes(typeof (AddJobCommand).GetTypeInfo().Assembly)
+            builder.RegisterAssemblyTypes(typeof(AddJobCommand).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
 
             builder.Register<SingleInstanceFactory>(ctx =>
