@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CashJobSite.Application.Queries;
 using CashJobSite.Data;
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.QueryHandlers
+namespace CashJobSite.Application.Features.SearchJobs
 {
     public class SearchJobsQueryHandler : IRequestHandler<SearchJobsQuery, IEnumerable<Job>>
     {

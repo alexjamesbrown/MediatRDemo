@@ -1,7 +1,7 @@
 ﻿using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.Commands
+namespace CashJobSite.Application.Features.AddJob
 {
     public class AddJobCommand : IRequest<Job>
     {

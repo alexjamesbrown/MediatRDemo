@@ -1,9 +1,8 @@
-﻿using CashJobSite.Application.Commands;
-using CashJobSite.Data;
+﻿using CashJobSite.Data;
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.CommandHandlers
+namespace CashJobSite.Application.Features.AddJob
 {
     public class AddJobCommandHandler : IRequestHandler<AddJobCommand, Job>
     {

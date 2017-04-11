@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using CashJobSite.Application.Queries;
+using CashJobSite.Application.Features.FindAllJobs;
+using CashJobSite.Application.Features.SearchJobs;
 using CashJobSite.Web.Models;
 using MediatR;
 

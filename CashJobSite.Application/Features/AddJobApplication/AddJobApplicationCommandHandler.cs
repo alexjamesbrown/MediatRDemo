@@ -1,12 +1,11 @@
 ﻿using System.Threading.Tasks;
-using CashJobSite.Application.Commands;
-using CashJobSite.Application.Notifications;
-using CashJobSite.Application.Queries;
+using CashJobSite.Application.Features.AddJobApplication.Notifications;
+using CashJobSite.Application.Features.GetJobById;
 using CashJobSite.Data;
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.CommandHandlers
+namespace CashJobSite.Application.Features.AddJobApplication
 {
     public class AddJobApplicationCommandHandler : IAsyncRequestHandler<AddJobApplicationCommand, Unit>
     {

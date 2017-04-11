@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CashJobSite.Application.Commands;
 using CashJobSite.Application.Logging;
 using MediatR;
 
-namespace CashJobSite.Application.Behaviours.Logging
+namespace CashJobSite.Application.Features.AddJob
 {
     public class AddJobLoggingHandler : IPipelineBehavior<AddJobCommand, Unit>
     {

@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using CashJobSite.Application.Commands;
-using CashJobSite.Application.Queries;
+using CashJobSite.Application.Features.AddJob;
+using CashJobSite.Application.Features.AddJobApplication;
+using CashJobSite.Application.Features.GetJobById;
+using CashJobSite.Application.Features.ReportJob;
 using CashJobSite.Models;
 using CashJobSite.Web.Models;
 using MediatR;

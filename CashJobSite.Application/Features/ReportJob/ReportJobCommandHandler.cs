@@ -1,13 +1,12 @@
 ﻿using System.Threading.Tasks;
-using CashJobSite.Application.Commands;
+using CashJobSite.Application.Features.GetJobById;
 using CashJobSite.Application.Logging;
-using CashJobSite.Application.Queries;
 using CashJobSite.Application.Services;
 using CashJobSite.Data;
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.CommandHandlers
+namespace CashJobSite.Application.Features.ReportJob
 {
     public class ReportJobCommandHandler : IAsyncRequestHandler<ReportJobCommand, Unit>
     {

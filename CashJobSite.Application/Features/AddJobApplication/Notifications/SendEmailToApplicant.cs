@@ -1,8 +1,6 @@
-using CashJobSite.Application.Notifications;
-using CashJobSite.Application.Services;
 using MediatR;
 
-namespace CashJobSite.Application.NotificationHandlers.JobApplicationSent
+namespace CashJobSite.Application.Features.AddJobApplication.Notifications
 {
     public class SendEmailToApplicant : INotificationHandler<JobApplicationSentNotification>
     {

@@ -1,11 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using CashJobSite.Application.Logging;
-using CashJobSite.Application.Queries;
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.Behaviours.Logging
+namespace CashJobSite.Application.Features.GetJobById
 {
     public class GetJobByIdLoggingHandler : IPipelineBehavior<GetJobByIdQuery, Job>
     {

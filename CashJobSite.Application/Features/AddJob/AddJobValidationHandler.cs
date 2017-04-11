@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using CashJobSite.Application.Commands;
 using MediatR.Pipeline;
 
-namespace CashJobSite.Application.Behaviours.Validation
+namespace CashJobSite.Application.Features.AddJob
 {
     public class AddJobValidationHandler : IRequestPreProcessor<AddJobCommand>
     {

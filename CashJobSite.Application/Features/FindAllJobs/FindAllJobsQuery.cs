@@ -2,7 +2,7 @@
 using CashJobSite.Models;
 using MediatR;
 
-namespace CashJobSite.Application.Queries
+namespace CashJobSite.Application.Features.FindAllJobs
 {
     public class FindAllJobsQuery : IRequest<IEnumerable<Job>>
     {
