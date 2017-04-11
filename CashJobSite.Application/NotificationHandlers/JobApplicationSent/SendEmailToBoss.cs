@@ -1,5 +1,4 @@
 ﻿using CashJobSite.Application.Notifications;
-using CashJobSite.Application.Services;
 using MediatR;
 
 namespace CashJobSite.Application.NotificationHandlers.JobApplicationSent
