@@ -59,8 +59,8 @@
     <Compile Include="Commands\AddJobApplicationCommand.cs" />
     <Compile Include="Commands\AddJobCommand.cs" />
     <Compile Include="Commands\ReportJobCommand.cs" />
-    <Compile Include="NotificationHandlers\JobApplicationReceived\SendEmailToApplicant.cs" />
-    <Compile Include="NotificationHandlers\JobApplicationReceived\SendEmailToBoss.cs" />
+    <Compile Include="NotificationHandlers\JobApplicationSent\SendEmailToApplicant.cs" />
+    <Compile Include="NotificationHandlers\JobApplicationSent\SendEmailToBoss.cs" />
     <Compile Include="Notifications\JobApplicationSentNotification.cs" />
     <Compile Include="Queries\FindAllJobsQuery.cs" />
     <Compile Include="Queries\GetJobByIdQuery.cs" />

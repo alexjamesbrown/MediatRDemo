@@ -10,7 +10,8 @@ namespace CashJobSite.Application.Notifications
         public string CandidateEmail { get; set; }
         public string CandidateInfo { get; set; }
 
-        public JobApplicationSentNotification(Job job, string candidateName, string candidateEmail, string candidateInfo)
+        public JobApplicationSentNotification(Job job, string candidateName, 
+            string candidateEmail, string candidateInfo)
         {
             Job = job;
             CandidateName = candidateName;

@@ -41,7 +41,12 @@ namespace CashJobSite.Application.CommandHandlers
             _dbContext.SaveChanges();
 
             await _mediator
-                .Publish(new JobApplicationSentNotification(job, message.CandidateName, message.CandidateEmail, message.CandidateInfo));
+                .Publish(new JobApplicationSentNotification(
+                    job,
+                    message.CandidateName,
+                    message.CandidateEmail,
+                    message.CandidateInfo)
+                );
 
             _logger.Debug("Emails Sent");
 
