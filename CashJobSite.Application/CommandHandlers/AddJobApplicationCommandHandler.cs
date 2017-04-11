@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using CashJobSite.Application.Commands;
-using CashJobSite.Application.Logging;
 using CashJobSite.Application.Notifications;
 using CashJobSite.Application.Queries;
 using CashJobSite.Data;
@@ -13,13 +12,11 @@ namespace CashJobSite.Application.CommandHandlers
     {
         private readonly IMediator _mediator;
         private readonly ICashJobSiteDbContext _dbContext;
-        private readonly ILogger _logger;
 
-        public AddJobApplicationCommandHandler(IMediator mediator, ICashJobSiteDbContext dbContext, ILogger logger)
+        public AddJobApplicationCommandHandler(IMediator mediator, ICashJobSiteDbContext dbContext)
         {
             _mediator = mediator;
             _dbContext = dbContext;
-            _logger = logger;
         }
 
         public async Task<Unit> Handle(AddJobApplicationCommand message)
@@ -44,8 +41,6 @@ namespace CashJobSite.Application.CommandHandlers
                     message.CandidateEmail,
                     message.CandidateInfo)
                 );
-
-            _logger.Debug("Emails Sent");
 
             return Unit.Value;
         }
