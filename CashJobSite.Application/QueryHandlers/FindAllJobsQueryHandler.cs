@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CashJobSite.Application.Logging;
 using CashJobSite.Application.Queries;
 using CashJobSite.Data;
